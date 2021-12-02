@@ -84,12 +84,14 @@ rectangulaire::rectangulaire():source(){
 
 rectangulaire::rectangulaire(float ph, float v0, float temps):source(ph,v0){
     t = temps;
+    cout << endl;
+    cout << phi << "  " << vzero << "  "  <<  t<< endl;
 };
 
 float rectangulaire::generer_onde(float temps){
     if(temps>(this->phi) && temps <(this->t + this->phi))
        {
-        return this->vzero;
+        return this->get_vzero();
     }
     else return 0;
 };

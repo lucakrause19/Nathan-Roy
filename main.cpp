@@ -1,5 +1,6 @@
 #include<iostream>
 #include "source.h"
+#include "circuit.h"
 #include <math.h>
 #include <tgmath.h>
 
@@ -7,18 +8,37 @@ using namespace std;
 
 int main()
 {
-    creneau a(0.3,10,2*3.14,0.45);
 
-    cout << "SEXTA FEIRA DOS CRIAAAAAAAA CAI CAI CAI CAI ";
-    FILE * fich;
-int npas=100000;
-float t,dt=12/float(npas);
-fich=fopen("ve","wt");
+
+    circuitA *ckta;
+
+    source *pS;
+
+    ckta = new circuitA(50,pow(1,-9));
+    pS = new rectangulaire(0,10,2);
+    float v_s = 0;
+    FILE * ve;
+    FILE * vs;
+    int npas=10000;
+float t,dt=1./float(npas);
+
+ve=fopen("ve", "wt");
 for(int i=0;i<npas+1;i++)
 {
-t=float(i)*dt;
-fprintf(fich,"%f %f \n",t,a.generer_onde(t));
+t=float(i)*3.141519265*dt;
+fprintf(ve,"%f %f \n",t,pS->generer_onde(t));
 }
-fclose(fich);
+fclose(ve);
+
+vs=fopen("vs", "wt");
+for(int i=0;i<npas+1;i++)
+{
+t=float(i)*3.141519265*dt;
+fprintf(vs,"%f %f \n",t,ckta->f(t,pS,v_s,dt));
+v_s = ckta->f(t,pS,v_s,dt);
+}
+fclose(vs);
+
 return 0;
-};
+}
+

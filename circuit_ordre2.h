@@ -6,13 +6,11 @@ public:
 circuitO2();
 ~circuitO2();
 
-virtual float f(float temps, source* ve, float vs){};
+virtual float f(float h, float temps, source *ve, float vs, float vs_line){};
 
-float f(float h, float temps, source *ve, float vs, float vs_line);
+float* circuit::euler(float u1, float u2, float h, float f);
 
 protected:
-
-source *m_pS;
 
 private:
 };
@@ -32,7 +30,6 @@ protected:
 float m_r;
 float m_L;
 float m_c;
-source* m_pS;
 
 private:
 };

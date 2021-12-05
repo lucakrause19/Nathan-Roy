@@ -119,15 +119,26 @@ float sinusoidal::get_phi(){
 };
 
 float sinusoidal::generer_onde(float temps){
-    return vzero*sin(2*3.1416*temps/this->get_periode() + this->get_periode());
+    return vzero*sin(2*3.1416*temps/this->get_periode());
 };
 
 float creneau::generer_onde(float temps){
-    int prov = floor(temps/this->periode);
-    int prov_temps = temps - prov*periode;
-    if (prov_temps< this->phi)
-        return 0;
-        else if(temps>this->phi && temps <(this->phi + this->duty_cycle)) //((this->phi)/(2*3.1416)*this->periode)+this->duty_cycle*this->periode)){
-        return this->vzero;
-        };
+
+        double prov1, prov2;
+        prov1 = floor((temps - this->phi)/(this->periode));
+        prov2 = temps - prov1*this->periode;
+        if(prov2 <= this->duty_cycle){
+            return (this->vzero);
+        }else{
+            return 0;
+        }
+};
+
+   // int prov = floor(temps/this->periode);
+   // int prov_temps = temps - prov*periode;
+   // if (prov_temps< this->phi)
+   //     return 0;
+   //     else if(temps>this->phi && temps <(this->phi + this->duty_cycle)) //((this->phi)/(2*3.1416)*this->periode)+this->duty_cycle*this->periode)){
+   //     return this->vzero;
+   //     };
 

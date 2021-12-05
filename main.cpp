@@ -11,18 +11,20 @@ int main()
 
 
     circuitA *ckta;
+    circuitB *cktb;
 
     source *pS;
 
-    ckta = new circuitA(50,pow(10,-9));
-    pS = new sinusoidal(0,1,120*pow(10,-9));
+    ckta = new circuitA(50,1*pow(10,-9));
+    //cktb = new circuitB(36,180,pow(10,-9),0.6);
+    pS = new creneau(0,1,100*pow(10,-9),0.5);
     float last = 0;
     FILE * ve;
     FILE * vs;
 
 //float trace_source()
 //{
-    int npas=10000;
+    int npas=5000;
 float t,dt=(500*pow(10,-9))/float(npas);
 
 ve=fopen("ve", "wt");

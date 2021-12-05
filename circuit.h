@@ -27,7 +27,7 @@ public:
 circuitA();
 circuitA(float r, float c);
 
-float f(float temps, source* ve, float vs, float h);
+double f(float temps, source* ve, float vs, float h);
 
 
 protected:
@@ -47,13 +47,11 @@ public:
 circuitB();
 circuitB(float r1, float r2, float c, float vbe);
 
-float f(float temps, source* ve, float vs, float h);
+double f(float temps, source* ve, float vs, float h);
 
 
 
 protected:
-//float vs_line;
-//float vs_0;
 float r1;
 float r2;
 float c;

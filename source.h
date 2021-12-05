@@ -18,11 +18,6 @@ protected:
 
 float phi;
 float vzero;
-
-
-private:
-virtual ostream& print(ostream &O) const{};
-
 };
 
 class periodique: public source{
@@ -31,7 +26,6 @@ public:
 periodique();
 periodique(float phi, float vzero, float periode);
 ~periodique();
-ostream& print(ostream &O) const{};
 float generer_onde(float temps)=0;   //{};
 float get_vzero();
 float get_phi();
@@ -47,7 +41,6 @@ public:
 triangulaire();
 triangulaire(float phi, float vzero, float periode);
 ~triangulaire(){};
-ostream& print(ostream &O) const{};
 float generer_onde(float temps);
 };
 
@@ -57,7 +50,6 @@ public:
 creneau();
 creneau(float phi, float vzero, float periode, float duty_cycle);
 ~creneau(){};
-ostream& print(ostream &O) const{};
 float generer_onde(float temps);
 
 protected:
@@ -70,12 +62,7 @@ public:
 sinusoidal();
 sinusoidal(float phi, float vzero, float periode);
 ~sinusoidal(){};
-ostream& print(ostream &O) const{};
 float generer_onde(float temps);
-float get_vzero();
-float get_phi();
-float get_periode();
-
 };
 
 
@@ -86,7 +73,6 @@ public:
 rectangulaire();
 rectangulaire(float phi, float vzero, float t);
 ~rectangulaire(){};
-ostream& print(ostream &O) const{};
 float generer_onde(float temps);
 
 protected:
@@ -99,6 +85,5 @@ public:
 echelon();
 echelon(float phi, float vzero);
 ~echelon(){};
-ostream& print(ostream &O) const{};
 float generer_onde(float temps);
 };

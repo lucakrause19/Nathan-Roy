@@ -5,6 +5,9 @@
 
 using namespace std;
 
+//-------------------- Default
+
+
 circuit::circuit(){
 }
 
@@ -42,34 +45,20 @@ float circuit::euler(float u, float h, float f)
 }
 
 
-float circuitA::f(float temps, source *ve, float vs, float h){
-    //cout<<vs<<endl;
-    //int a;
-    //cin>>a;
-    if (temps <= 0) return 0;
-    else {  float func = (ve->generer_onde(temps - h) - vs)/(r*c);
-            return euler(vs,h,func);
+double circuitA::f(float temps, source *ve, float vs, float h){
+    if (temps <= 0.0) {
+        return 0;
+    } else {
+        double func = (ve->generer_onde(temps-h)-vs)*(20000000);
+        return euler(vs,h,func);
+    }
 }
-}
 
-
-//float Circuit_A::v_s(float lastValue, float temps, float dt, Source *source)
-//{
-//    if (temps <= 0.0) {
-//        return 0;
-//    } else {
-//        float f = (source->v_e(temps-dt)-lastValue)/(m_R*m_C);
-//        return Euler1(lastValue, dt, f);
-//    }
-//}
-
-
-float circuitB::f(float temps, source *ve, float vs, float h){
-    //cout<<vs<<endl;
-    float func;
+double circuitB::f(float temps, source *ve, float vs, float h){
+    double func;
     if (temps == 0) return 0;
     else if (ve->generer_onde(temps) > vbe){
-    func = (-(1/(r1*c) + 1/(r2*c))*vs + (ve->generer_onde(temps - h) - vbe)/(r1*c));
+    func = ((1/(r1*c) + 1/(r2*c))*(-vs) + (ve->generer_onde(temps - h) - vbe)/(r1*c));
     } else func = (-vs/(r2*c));
      return euler(vs,h,func);
 }

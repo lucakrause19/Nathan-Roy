@@ -14,31 +14,38 @@ int main()
 
     source *pS;
 
-    ckta = new circuitA(50,pow(1,-9));
-    pS = new rectangulaire(0,10,2);
-    float v_s = 0;
+    ckta = new circuitA(50,pow(10,-9));
+    pS = new sinusoidal(0,1,120*pow(10,-9));
+    float last = 0;
     FILE * ve;
     FILE * vs;
+
+//float trace_source()
+//{
     int npas=10000;
-float t,dt=1./float(npas);
+float t,dt=(500*pow(10,-9))/float(npas);
 
 ve=fopen("ve", "wt");
 for(int i=0;i<npas+1;i++)
 {
 t=float(i)*3.141519265*dt;
-fprintf(ve,"%f %f \n",t,pS->generer_onde(t));
+fprintf(ve,"%.15f %.15f \n",t,pS->generer_onde(t));
 }
 fclose(ve);
+
+//Generer tension de sortie
+
 
 vs=fopen("vs", "wt");
 for(int i=0;i<npas+1;i++)
 {
 t=float(i)*3.141519265*dt;
-fprintf(vs,"%f %f \n",t,ckta->f(t,pS,v_s,dt));
-v_s = ckta->f(t,pS,v_s,dt);
+last = ckta->f(t,pS,last,dt);
+fprintf(vs,"%.15f %.15f \n",t,last);
 }
 fclose(vs);
 
 return 0;
-}
+};
+
 

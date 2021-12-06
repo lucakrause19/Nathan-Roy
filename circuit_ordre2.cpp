@@ -6,13 +6,13 @@ circuitO2::circuitO2(){
 
 circuitO2::~circuitO2(){};
 
-float* circuit::euler(float u1, float u2, float h, float f)
-{
-    float prov_sortie = new float[2];
-    prov_sortie[0] = u1 + h*u1;
-    prov_sortie[1] = u2 + h*f;
-    return prov_sortie;
-}
+//float* circuit_O2::euler2(float u1, float u2, float h, float f)
+//{
+//    float prov_sortie = new float[2];
+//    prov_sortie[0] = u1 + h*u1;
+//    prov_sortie[1] = u2 + h*f;
+//    return prov_sortie;
+//}
 
 circuitC::circuitC(){
     m_r = 0;

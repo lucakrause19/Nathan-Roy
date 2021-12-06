@@ -8,7 +8,7 @@ circuitO2();
 
 virtual float f(float h, float temps, source *ve, float vs, float vs_line){};
 
-float* circuit::euler(float u1, float u2, float h, float f);
+//float* circuitO2::euler2(float u1, float u2, float h, float f);
 
 protected:
 

@@ -1,0 +1,32 @@
+# depslib dependency file v1.0
+1638717909 source:c:\users\lucal\downloads\brafitec\enseeiht\poo\exercice4\exercice5\be1\main.cpp
+	<iostream>
+	"source.h"
+	"circuit.h"
+	<math.h>
+	<tgmath.h>
+
+1638715316 c:\users\lucal\downloads\brafitec\enseeiht\poo\exercice4\exercice5\be1\source.h
+	<iostream>
+
+1638714965 source:c:\users\lucal\downloads\brafitec\enseeiht\poo\exercice4\exercice5\be1\source.cpp
+	<iostream>
+	<math.h>
+	<tgmath.h>
+	"source.h"
+
+1638717656 source:c:\users\lucal\downloads\brafitec\enseeiht\poo\exercice4\exercice5\be1\circuit.cpp
+	<iostream>
+	<math.h>
+	<tgmath.h>
+	"circuit.h"
+
+1638718274 c:\users\lucal\downloads\brafitec\enseeiht\poo\exercice4\exercice5\be1\circuit.h
+	"source.h"
+
+1638459931 source:c:\users\lucal\downloads\brafitec\enseeiht\poo\exercice4\exercice5\be1\circuit_ordre2.cpp
+	"circuit_ordre2.h"
+
+1638459828 c:\users\lucal\downloads\brafitec\enseeiht\poo\exercice4\exercice5\be1\circuit_ordre2.h
+	"source.h"
+

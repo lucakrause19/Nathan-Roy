@@ -5,11 +5,22 @@
 
 using namespace std;
 
-//-------------------- Default
+//-------------------- Constructeur par default de classe mère (seulement par default)
 
 
 circuit::circuit(){
 }
+
+//-------------------- Fonction de la methode d'Euler premier ordre
+
+
+float circuit::euler(float u, float h, float f)
+{
+   return (u + h*f);
+}
+
+//-------------------- Constructeur par default de classe circuit A (default et parametrise)
+
 
 
 circuitA::circuitA(){
@@ -23,6 +34,8 @@ circuitA::circuitA(float rr, float cc){
     cout << r << endl;
     cout << c << endl;
 }
+
+//-------------------- Constructeur par default de classe circuit B (default et parametrise)
 
 circuitB::circuitB(){
     r1 = 0;
@@ -38,12 +51,7 @@ circuitB::circuitB(float rr1, float rr2, float cc, float vbee){
     vbe = 0.6;
 }
 
-
-float circuit::euler(float u, float h, float f)
-{
-   return (u + h*f);
-}
-
+//-------------------- Fonction qui va definir la forme de la sortie et sa valeur a un temps fixe, en appellant la methode d'Euler (circuit A)
 
 double circuitA::f(float temps, source *ve, float vs, float h){
     if (temps <= 0.0) {
@@ -53,6 +61,8 @@ double circuitA::f(float temps, source *ve, float vs, float h){
         return euler(vs,h,func);
     }
 }
+
+//-------------------- Fonction qui va definir la forme de la sortie et sa valeur a un temps fixe, en appellant la methode d'Euler (circuit B)
 
 double circuitB::f(float temps, source *ve, float vs, float h){
     double func;
